@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task21</title>
+    <link rel="shortcut icon" href="imgs/fav.png">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <style>
+        body{
+            height:1000px;
+        }
+        .wix .over-lay{
+            margin-top: 20px;
+        }
+        .wix #phone-img{
+            float: left;
+            position: relative;
+        }
+        .wix #bg-img{
+            position: absolute;
+            padding-top: 43px;
+            width:  229px ;   
+            height:430px ;     
+            opacity: 0.6;      
+        }
+        .wix input{
+            margin-top: 515px;
+        }
+        .wix .toggle i {
+            margin-left: 15px;
+            cursor: pointer;
+        }
+        .wix .content .fa {
+            position: absolute;
+            top: 71px;
+            left: 22%;
+        }
+        .wix .apps i{
+            margin-right: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="wix">
+        <div class="container">
+            <div class="over-lay">
+                <img id="bg-img">
+                <img id="phone-img" src="imgs/5.png">
+            </div>
+            <div class="content">
+                <i id="content-bars"></i>
+                <div class="content-app">
+                    <i class="fa fa-apple fa-3x"></i>
+                </div>
+            </div>
+            <input type="file" onchange="previewFile()">
+            <div class="toggle">
+                <h4>Sellect toggle :</h4>
+                <i id="angle-down" class="fa fa-angle-down fa-3x"></i>
+                <i id="angle-double-down" class="fa fa-angle-double-down fa-3x"></i>
+                <i id="bars" class="fa fa-bars fa-3x"></i>
+            </div>
+            <div class="apps">
+                <h4>Whow Many Apps You Want ? </h4><br>
+                <i>1</i><i>2</i><i>3</i>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-2.2.4.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script></script>
+    <script>
+        $(document).ready(function(){
+            $('#angle-down').click(function(){
+                $('#content-bars').attr('class','fa fa-angle-down fa-2x');
+            });
+            $('#angle-double-down').click(function(){
+                $('#content-bars').attr('class','fa fa-angle-double-down fa-2x');
+            });
+            $('#bars').click(function(){
+                $('#content-bars').attr('class','fa fa-bars fa-2x');
+            });
+        });
+    </script>
+    <script>
+            function previewFile(){
+                var preview = document.querySelector('img'); //selects the query named img
+                var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+                var reader  = new FileReader();
+         
+                reader.onloadend = function () {
+                    preview.src = reader.result;
+                }
+
+                if (file) {
+                    reader.readAsDataURL(file); //reads the data as a URL
+                } else {
+                    preview.src = "";
+                }
+           }
+         
+           previewFile();  //calls the function named previewFile()
+    </script>
+</body>
+</html>

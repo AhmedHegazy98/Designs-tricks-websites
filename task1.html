@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Task1</title>
+	<link rel="shortcut icon" href="imgs/fav.png">
+	<style>
+		#main button{
+			display:none;
+		}
+		#main p{
+			background: #CCC;
+			width: 30%;
+		}
+		#main p button{
+			display:block !important;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+
+<input type="text" id="text" >
+<button onclick="myFunction()">click</button>
+<div id="main">
+		<button onclick="Delete()" id="delete">Delete</button>
+</div>
+
+<script>
+	function myFunction() {
+
+	var myMainDiv=document.getElementById('main'),
+		inputVal=document.getElementById('text').value,
+		delButton=document.getElementById('delete'),
+		copyDelButton=delButton.cloneNode(true),
+		myNewText=document.createTextNode(inputVal),
+		myNewElement=document.createElement('p');
+
+		
+		myNewElement.appendChild(myNewText);
+		myNewElement.appendChild(copyDelButton);
+		myMainDiv.appendChild(myNewElement);
+
+	}
+
+		
+		
+			function Delete() {
+				for (var i = 0; i < 3; i++) {
+					var p = document.getElementsByTagName('p')[i].innerHTML=null;
+				}
+				
+
+			}
+
+</script>
+</body>
+</html>

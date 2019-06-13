@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Task20</title>
+    <link rel="shortcut icon" href="imgs/fav.png">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+
+    <style> 
+        body{
+            background: rgba(176, 181, 238, 0.4);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+        }
+        .cv h1{
+            margin:40px auto ;
+        }
+        .cv .right{
+            width :40%;
+            height: 850px;
+            background: rgba(176, 181, 181, 0.4);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            box-shadow:   5px 6px 1px rgba(0, 0, 0, 0.692);
+        }
+        .cv h1{
+            color: #261818ad;
+            font-family: cursive;
+        }
+        .cv .right #skills{
+            overflow:hidden ;
+            height: 110px;
+        }
+        .cv .left{
+            padding-left: 20px;
+            border-left: 3px dashed #000
+            
+        }
+        .cv .right{
+            margin-right: 15px;
+        }
+        .cv .right img{
+            float:right;
+            border-bottom: 4px solid #261818ad;
+            border-right: 4px solid #261818ad;
+
+        }
+        .cv .right hr{
+            width: 50%;
+            border: 0.5px solid #261818ad;
+        }
+        .cv .right h2{
+            margin-top: 40px;
+            margin-bottom: 30px;
+            font-family: cursive;
+        }
+        .cv .right label{
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #261818ad;
+        }
+        .cv .right .h2-1{
+            margin-top: 120px;
+        }
+        .cv .right button{
+            margin-top: 80px;
+        }
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+    .cv .right {
+    margin: 0;
+    border: initial;
+    border-radius: initial;
+    width: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+  }
+}
+
+    </style>
+</head>
+<body>
+
+<div class="cv">
+    <div class="container">
+        <h1>Resume Of  </h1>
+        <div class="row">
+            <div class="right col-md-4">
+               
+                <img src="#" alt="Upload Photo" style="border-radius:10%" height="170px" width="170px"><br>
+                
+                    <label >Name : </label> <i  id="name">Ahmed Hegazy</i><br><br>
+                    <label >Title : </label> <i id="title">Web Developer</i>
+                    <hr>
+
+                <h2 class="h2-1">INFO : </h3>
+                <label> <i id="radio3"></i> Number : </label> <i id="phone">01211053135</i><br>
+                <label>Adress : </label> <i id="adress">Mansoura</i><br>
+
+                <h2>Education : </h3>
+                <label>School : </label> <i id="school">Aga Secondary School</i><br>
+                <label>University : </label> <i id="university">Ahram Canadian University</i><br>
+
+                <h2>Skills : </h3>
+                <blockquote id="skills">
+                        but also the leap into electronic typesetting, 
+                </blockquote><br>
+
+
+            </div>
+            <div class="left col-md-7">
+                <label> Your Name Is : </label><br>
+                <input id="my-name" type="text"><br>
+                <label> Your Job Titel Is : </label><br>
+                <input id="my-title" type="text"><br>
+    
+                <h3>INFO : </h3>
+                <label> Your Number Is : </label>
+                <br>
+                <input type="radio" name="phoneType" id="radio1" class="fa fa-mobile " value="mobile">
+                <input type="radio" name="phoneType" id="radio2" class='fa fa-phone '  value="phone">
+                <input id="my-phone" type="text">
+                <br><br>
+                <label> Your Adress Is : </label>
+                <br>
+                <input id="my-adress" type="text">
+                <h3>Education : </h3>
+
+                <label> Your School Is : </label>
+                <br>
+                <input id="my-school" type="text">
+                <br><br>
+                <label> Your University Is : </label>
+                <br>
+                <input id="my-university" type="text">
+                <br><br>
+
+                <h3>Skills : </h3>
+                <label> Your Skills Is : </label>
+                <br>
+                <textarea id="my-skills" cols="50" rows="5"></textarea>
+                <br><br>
+                
+                <input type="file" onchange="previewFile()"><br>
+                <button onclick="func()" >Make My CV</button>
+                <button onclick="myFunction()">Print this page</button>
+            </div>
+        </div>
+    </div>
+</div>
+		
+
+
+
+<script src="js/jquery-2.2.4.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#radio1').click(function(){
+            $('#radio3').attr('class','fa fa-mobile');
+        });
+        $('#radio2').click(function(){
+            $('#radio3').attr('class','fa fa-phone');
+        });
+    });
+</script>
+<script>
+            function myFunction() {
+                window.print();
+            }
+            function func() {
+                document.getElementById('name').innerHTML=document.getElementById('my-name').value;
+                document.getElementById('title').innerHTML=document.getElementById('my-title').value;
+
+                document.getElementById('phone').innerHTML=document.getElementById('my-phone').value;
+                document.getElementById('adress').innerHTML=document.getElementById('my-adress').value;
+
+                document.getElementById('school').innerHTML=document.getElementById('my-school').value;
+                document.getElementById('university').innerHTML=document.getElementById('my-university').value;
+
+                document.getElementById('phone').innerHTML=document.getElementById('my-phone').value;
+
+                document.getElementById('skills').innerHTML=document.getElementById('my-skills').value;
+
+
+				}
+</script>
+<script>
+        function previewFile(){
+            var preview = document.querySelector('img'); //selects the query named img
+            var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+            var reader  = new FileReader();
+     
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            }
+     
+            if (file) {
+                reader.readAsDataURL(file); //reads the data as a URL
+            } else {
+                preview.src = "";
+            }
+       }
+     
+       previewFile();  //calls the function named previewFile()
+</script>
+</body>
+</html>

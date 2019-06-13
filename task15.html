@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Task15</title>
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="shortcut icon" href="imgs/fav.png">
+    <style>
+		* {
+			margin:0px;
+			padding: 0px;
+			font-family: sans-serif;
+		}
+		#sidebar {
+			float: right;
+			height: 100%;
+			width: 200px;
+			background-color: #151719;
+			position: fixed;
+			right: -200px;
+			transition: 0.8s ease-in-out;
+		}
+		#sidebar.active{
+			right: 0px;
+
+		}
+
+		#sidebar ul li {
+			color: #CCC;
+			list-style: none;
+			padding: 15px 10px;
+			border-bottom: 1px solid #CCC;
+			text-align: right;
+		}
+		#sidebar .toggle-btn{
+			position: absolute;
+			left: 230px;
+			top: 20px;
+		}
+		#sidebar .toggle-btn span{
+			display: block;
+			width: 30px;
+			height: 5px;
+			background: #151619;
+			margin: 5px 0px;
+		}
+		.navbar {
+			background-color: #000;
+			height: 60px;
+			margin-bottom: 0px ;
+			border-radius: 0px;
+		}
+		.fa{
+			padding-top: 14px ;
+    		margin-right: 200px ;
+			color: #fff;
+			float: right;
+		}
+		.fa-lg{
+			font-size: 2.333333em !important;
+		}
+    </style>
+</head>
+<body>
+		<nav class="navbar">
+			<i class="fa fa-bars fa-lg" onclick="toggleSidebar()" aria-hidden="true"></i>
+		</nav>
+
+        <div id="sidebar">
+			<ul>
+				<li>لوحه التحكم</li>
+				<li>الطلبات</li>
+				<li>العملاء</li>
+				<li>الانواع</li>
+				<li>الخدمات</li>
+				<li>مواعيد مقدم الخدمه</li>
+
+			</ul>
+		</div>
+   
+
+	<script>
+		function toggleSidebar(){
+			document.getElementById('sidebar').classList.toggle('active')
+		}
+	</script>
+</body>
+</html>

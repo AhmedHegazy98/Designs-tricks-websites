@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task18</title>
+    <link rel="shortcut icon" href="imgs/fav.png">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        body {
+        background-color: #1a2e48;
+        }
+
+        svg {
+        display: block;
+        width: 100%;
+        // height: auto;
+        }
+
+        .top {  
+        position: relative;
+        padding: 30px;
+        color: #fff;
+        text-align: center;
+        background-color: #161e38;
+        h1 {
+            margin:0;
+        }
+        }
+
+        .section {
+        padding: 30px;
+        color: #fff;
+        text-align: center;
+        background-color: #1a2e48;
+        h1 {
+            margin-top: 0;
+        }
+        }
+
+        .sub {
+        width: 30px;
+        background-color: transparent;
+        border: 0;
+        color: #fff !important;
+        text-align: right;
+        }
+    </style>
+</head>
+<body>
+             <div class="top">
+                <h1>Hi there!</h1>
+              </div>
+              
+              <svg width="600" height="280" viewBox="0 0 600 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+               <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+               <g>
+                <path id="svg_4" d="m-2,-52.30547c213.92539,-164.88947 427.85073,164.88946 641.77607,0l0,296.80101c-145.92534,122.88948 -463.85068,-190.88945 -641.77607,0l0,-296.80101z" fill="#161e38"/>
+               </g>
+              </svg>
+              <div class="section">
+                <h2>Morphing Waves</h2>
+                <div class="total">
+                  <input value="0" class="sub" disabled /> / 100
+                </div>
+              </div>
+
+    
+
+
+<script src="js/jquery-2.2.4.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+    <script>
+        //animeJS
+        var morphing = anime({
+        targets: 'svg path',
+        d: 'm-2,-110.30547c213.92539,-164.88947 427.85073,164.88946 641.77607,0l0,296.80101c-139.92534,-24.11052 -264.85068,196.11055 -641.77607,0l0,-296.80101z',
+        easing: 'easeOutQuad',
+        duration: 9000,
+        loop: true,  
+        direction: 'alternate'
+        });
+
+        var domAttributes = anime({
+        targets: '.sub',
+        value: 75,
+        round: 1,
+        easing: 'easeInOutExpo'
+        });
+    </script>
+</body>
+</html>

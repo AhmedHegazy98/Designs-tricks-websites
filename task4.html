@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>task4</title>
+  <link rel="shortcut icon" href="imgs/fav.png">
+  <style>
+  select{
+    padding: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    }
+    table{
+      margin-top: 120px;
+      border-collapse: collapse;
+      width: 75%;
+    }
+    td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+
+.dropbtn {
+  background-color: #FFF;
+  color: #000;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #000;
+  cursor: pointer;
+  width: 120px;
+
+}
+
+.dropdown {
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 160px;
+    overflow: auto;
+    z-index: 1;
+
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+
+}
+
+.show {display: block;}
+
+  </style>
+  <script></script>
+</head>
+<body>
+
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Sort . . </button>
+  <div id="myDropdown" class="dropdown-content">
+    <a onclick="sortByName()">Sort By Name</a>
+    <a onclick="sortByNumber()">Sort By Number</a>
+  </div>
+</div>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>ID</th>
+    </tr>
+  </thead>
+  <tbody id="myTable">
+    <tr>
+      <td id="names">Ahmed</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td id="names">Mohamed</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td id="names">Ezzat</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td id="names">Hesham</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td id="names">Sara</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+
+</table>
+
+<script>
+
+function sortByName() {
+
+  var table, rows, y=[], x ;
+  table = document.getElementById("myTable");
+  rows = table.rows;
+
+    for (var i = 0; i < rows.length ; i++) {
+      x = rows[i].getElementsByTagName("TD")[0].innerHTML;
+      y.push(x);
+    }
+
+   y = y.sort();
+
+   for (var k = 0; k < rows.length ; k++) {
+      x = rows[k].getElementsByTagName("TD")[0].innerHTML=y[k];
+    }
+ 
+};
+
+function sortByNumber() {
+
+  var table, rows, y=[], x ;
+  table = document.getElementById("myTable");
+  rows = table.rows;
+
+    for (var i = 0; i < rows.length ; i++) {
+      x = rows[i].getElementsByTagName("TD")[1].innerHTML;
+      y.push(x);
+    }
+
+   y = y.sort();
+
+   for (var k = 0; k < rows.length ; k++) {
+      x = rows[k].getElementsByTagName("TD")[1].innerHTML=y[k];
+    }
+}
+
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+</script>
+                
+
+</body>
+</html>
